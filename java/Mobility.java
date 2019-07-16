@@ -46,10 +46,10 @@ import org.contikios.cooja.PluginType;
 import org.contikios.cooja.Simulation;
 import org.contikios.cooja.TimeEvent;
 import org.contikios.cooja.VisPlugin;
-/* import org.contikios.cooja.dialogs.MessageList; */
+import org.contikios.cooja.dialogs.MessageList;
 import org.contikios.cooja.interfaces.Position;
 import org.contikios.cooja.util.StringUtils;
-import org.contikios.cooja.dialogs.MessageListUI;
+/*import org.contikios.cooja.dialogs.MessageListUI;*/
 @ClassDescription("Mobility")
 @PluginType(PluginType.SIM_PLUGIN)
 
@@ -68,21 +68,21 @@ public class Mobility extends VisPlugin {
 
   private File filePositions = null;
 
-/*  private MessageList log = new MessageList();*/
-    private MessageListUI log = new MessageListUI();
+//    private MessageList log = new MessageList();
+/*    private MessageListUI log = new MessageListUI();*/
 
   public Mobility(Simulation simulation, final Cooja Cooja) {
     super("Mobility", Cooja, false);
     this.simulation = simulation;
 
-    log.addPopupMenuItem(null, true); /* Create message list popup */
-    add(new JScrollPane(log));
+//    log.addPopupMenuItem(null, true); /* Create message list popup */
+/*    add(new JScrollPane(log));
 
     if (!QUIET) {
       log.addMessage("Mobility plugin started at (ms): " + simulation.getSimulationTimeMillis());
       logger.info("Mobility plugin started at (ms): " + simulation.getSimulationTimeMillis());
     }
-    setSize(500,200);
+    setSize(500,200);*/
   }
 
   public void startPlugin() {
@@ -111,7 +111,7 @@ public class Mobility extends VisPlugin {
   private void loadPositions() {
     try {
       if (!QUIET) {
-        log.addMessage("Parsing position file: " + filePositions);
+//        log.addMessage("Parsing position file: " + filePositions);
         logger.info("Parsing position file: " + filePositions);
       }
   
@@ -136,7 +136,7 @@ public class Mobility extends VisPlugin {
       }
       entries = entriesList.toArray(new Move[0]);
       if (!QUIET) {
-        log.addMessage("Loaded " + entries.length + " positions");
+  //      log.addMessage("Loaded " + entries.length + " positions");
         logger.info("Loaded " + entries.length + " positions");
       }
 
@@ -153,7 +153,7 @@ public class Mobility extends VisPlugin {
       });
 
     } catch (Exception e) {
-      log.addMessage("Error when loading positions: " + e.getMessage());
+    //  log.addMessage("Error when loading positions: " + e.getMessage());
       logger.info("Error when loading positions:", e);
       entries = new Move[0];
     }
